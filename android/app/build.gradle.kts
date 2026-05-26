@@ -1,8 +1,14 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+base {
+    archivesName.set("multiverse_canon_v${flutter.versionName}_${flutter.versionCode}")
 }
 
 android {
@@ -19,6 +25,13 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
+    val keystoreProperties = Properties()
+    val keystorePropertiesFile = rootProject.file("key.properties")
+
+    if(keystorePropertiesFile.exists()){
+        keystoreProperties.load(keystorePropertiesFile.inputStream())
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.multiverse_canon"
@@ -30,17 +43,32 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release"){
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+            storePassword = keystoreProperties.getProperty("storePassword")
+
+            val storeFilePath = keystoreProperties.getProperty("storeFile")
+            if(!storeFilePath.isNullOrEmpty()){
+                storeFile = file(storeFilePath)
+            }
+        }
+    }
+
     buildTypes {
-        debug {
+        getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
         }
         create("qa"){
+            isMinifyEnabled = true
+            isDebuggable = false
             signingConfig = signingConfigs.getByName("debug")
         }
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+        getByName("release") {
+            isMinifyEnabled = true
+            isDebuggable = false
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     flavorDimensions += "default"
