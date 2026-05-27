@@ -1,5 +1,5 @@
 name: multiverse_canon
-description: "multiver canon app"
+description: "multiverse canon app"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -34,6 +34,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  drift: ^2.33.0
+  bloc: ^9.2.1
+  auto_route: ^11.1.0
+  dio: ^5.9.2
+  widgetbook: ^3.23.0
+  flutter_secure_storage: ^10.3.1
+  firebase_core: ^4.9.0
+  firebase_crashlytics: ^5.2.2
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:

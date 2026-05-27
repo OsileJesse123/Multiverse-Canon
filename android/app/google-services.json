@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961879384338",
+    "project_id": "multiverse-canon",
+    "storage_bucket": "multiverse-canon.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961879384338:android:4563f781864af81f1d13cb",
+        "android_client_info": {
+          "package_name": "com.example.multiverse_canon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaHBUVjHNng5MLTyn_ktOA9qG3eAIp7OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961879384338:android:d10de27804fe6ac81d13cb",
+        "android_client_info": {
+          "package_name": "com.example.multiverse_canon.development"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaHBUVjHNng5MLTyn_ktOA9qG3eAIp7OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
